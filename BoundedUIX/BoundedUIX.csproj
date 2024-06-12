@@ -6,7 +6,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BoundedUIX</RootNamespace>
     <AssemblyName>BoundedUIX</AssemblyName>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <LangVersion>latestMajor</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -39,24 +39,25 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
     <Reference Include="0Harmony">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Resonite\0Harmony.dll</HintPath>
+      <HintPath>$(ResonitePath)\rml_libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="FrooxEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\Public\FrooxEngine.dll</HintPath>
+    <Reference Include="FrooxEngine" Publicize="true">
+      <HintPath>$(ResonitePath)\Resonite_Data\Managed\FrooxEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Elements.Core">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\Elements.Core.dll</HintPath>
+      <HintPath>$(ResonitePath)\Resonite_Data\Managed\Elements.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ValueTuple">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Resonite\Resonite_Data\Managed\System.ValueTuple.dll</HintPath>
+      <HintPath>$(ResonitePath)\Resonite_Data\Managed\System.ValueTuple.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ResoniteModLoader">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Resonite\Libraries\ResoniteModLoader.dll</HintPath>
+      <HintPath>$(ResonitePath)\Libraries\ResoniteModLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
