@@ -69,7 +69,7 @@ namespace BoundedUIX
             var colliderField = typeof(RaycastHit).GetField(nameof(RaycastHit.Collider), AccessTools.allDeclared);
 
             var instructions = codeInstructions.ToList();
-            var raycastValueIndex = instructions.FindIndex(instruction => instruction.LoadsField(colliderField));
+            var raycastValueIndex = instructions.FindLastIndex(instruction => instruction.LoadsField(colliderField));
 
             instructions.RemoveAt(raycastValueIndex);
             instructions[raycastValueIndex] = new CodeInstruction(OpCodes.Call, checkCanvasHitMethod);

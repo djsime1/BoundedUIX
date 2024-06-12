@@ -17,19 +17,19 @@ namespace BoundedUIX
         [HarmonyPatch(nameof(RectTransform.BuildInspectorUI))]
         private static void BuildInspectorUIPostfix(RectTransform __instance, UIBuilder ui)
         {
-            var button = ui.Button("Visualize Preferred Area");
-            var valueField = button.Slot.AttachComponent<ValueField<bool>>().Value;
+            var visualizeButton = ui.Button("Visualize Preferred Area");
+            var valueField = visualizeButton.Slot.AttachComponent<ValueField<bool>>().Value;
 
-            var toggle = button.Slot.AttachComponent<ButtonToggle>();
+            var toggle = visualizeButton.Slot.AttachComponent<ButtonToggle>();
             toggle.TargetValue.Target = valueField;
 
             valueField.OnValueChange += field =>
             {
-                button.Enabled = false;
+                visualizeButton.Enabled = false;
 
                 __instance.StartTask(async () =>
                 {
-                    while (!button.IsRemoved && !__instance.IsRemoved && (!__instance?.Canvas.IsRemoved ?? false))
+                    while (!visualizeButton.IsRemoved && !__instance.IsRemoved && (!__instance?.Canvas.IsRemoved ?? false))
                     {
                         var horizontal = __instance.GetHorizontalMetrics().preferred;
                         var vertical = __instance.GetVerticalMetrics().preferred;
@@ -63,6 +63,15 @@ namespace BoundedUIX
                         await default(NextUpdate);
                     }
                 });
+            };
+
+            var fixUIXButton = ui.Button("Fix UIX");
+
+            fixUIXButton.Slot.ActiveSelf_Field.OverrideForUser(__instance.Slot.World.LocalUser, true).Default.Value = false;
+            fixUIXButton.LocalPressed += (button, data) => {
+                var canvas = AccessTools.Field(__instance.GetType(), "_registeredCanvas").GetValue(__instance) as Canvas;
+
+                AccessTools.Method(typeof(Canvas), "RegisterDirtyTransform").Invoke(canvas, new object[] { __instance });
             };
         }
     }
