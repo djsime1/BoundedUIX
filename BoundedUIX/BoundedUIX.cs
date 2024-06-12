@@ -53,14 +53,14 @@ namespace BoundedUIX
         public static bool PrioritizeHierarchyDepth => Config.GetValue(prioritizeHierarchyDepthKey);
         public static bool PrioritizeButtons => Config.GetValue(prioritizeButtonsKey);
 
-        public override string Author => "Banane9";
-        public override string Link => "https://github.com/Banane9/ResoniteBoundedUIX";
+        public override string Author => "Banane9 & djsime1";
+        public override string Link => "https://github.com/djsime1/BoundedUIX";
         public override string Name => "BoundedUIX";
-        public override string Version => "1.0.0";
+        public override string Version => "1.1.0";
 
         public override void OnEngineInit()
         {
-            var harmony = new Harmony($"{Author}.{Name}");
+            var harmony = new Harmony($"Banane9.BoundedUIX");
             Config = GetConfiguration();
             Config.Save(true);
             harmony.PatchAll();
