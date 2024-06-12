@@ -38,6 +38,9 @@ namespace BoundedUIX
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> prioritizeHierarchyDepthKey = new("PrioritizeHierarchyDepth", "Prioritize the hierarchy depth of a potentially hit RectTransform over the layout order. Can help instead of or in addition to skipping already selected elements.", () => false);
+        
+        [AutoRegisterConfigKey]
+        private static readonly ModConfigurationKey<bool> prioritizeButtonsKey = new("PrioritizeButtons", "When searching for a potentially hit RectTransform, prioritize slots with Button components at a higher hierarchy.", () => true);
 
         public static string ChildSlotName => Config.GetValue(childSlotNameKey);
         public static bool EnableUIXGizmos => Config.GetValue(enableUIXGizmosKey);
@@ -48,6 +51,7 @@ namespace BoundedUIX
         public static string ParentSlotName => Config.GetValue(parentSlotNameKey);
         public static string PivotSlotName => Config.GetValue(pivotSlotNameKey);
         public static bool PrioritizeHierarchyDepth => Config.GetValue(prioritizeHierarchyDepthKey);
+        public static bool PrioritizeButtons => Config.GetValue(prioritizeButtonsKey);
 
         public override string Author => "Banane9";
         public override string Link => "https://github.com/Banane9/ResoniteBoundedUIX";

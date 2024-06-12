@@ -21,7 +21,7 @@ namespace BoundedUIX
             {
                 bestSlot = FindBestRect(bestSlot.GlobalPointToLocal(hit.Point).xy, bestSlot);
 
-                if (bestSlot.GetComponentInParents<Button>() is Button button && button.Slot.HierachyDepth > rectTransform.Slot.HierachyDepth)
+                if (BoundedUIX.PrioritizeButtons && bestSlot.GetComponentInParents<Button>() is Button button && button.Slot.HierachyDepth > rectTransform.Slot.HierachyDepth)
                     bestSlot = button.Slot;
             }
 
