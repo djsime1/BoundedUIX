@@ -1,4 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Banane9 &amp; djsime1</Authors>
+    <Product>GradientDriverEasing</Product>
+    <Description>Makes UIX elements selectable and editable with the usual Slot gizmos, as well as fixing UIX elements breaking when a parent is inserted</Description>
+    <Version>1.1.1</Version>
+    <Copyright>$(Authors)</Copyright>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <AssemblyTitle>$(Product)</AssemblyTitle>
+  </PropertyGroup>
+
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
