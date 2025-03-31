@@ -17,6 +17,12 @@ namespace BoundedUIX
         [HarmonyPatch(nameof(RectTransform.BuildInspectorUI))]
         private static void BuildInspectorUIPostfix(RectTransform __instance, UIBuilder ui)
         {
+            ui.Style.MinHeight = 24f;
+            ui.Text("BoundedUIX (Mod)").Color.Value = RadiantUI_Constants.Hero.CYAN;
+            ui.Style.MinHeight = 2f;
+            ui.Image(RadiantUI_Constants.Hero.CYAN);
+            ui.Style.MinHeight = 24f;
+
             var visualizeButton = ui.Button("Visualize Preferred Area");
             var valueField = visualizeButton.Slot.AttachComponent<ValueField<bool>>().Value;
 

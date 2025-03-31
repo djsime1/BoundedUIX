@@ -4,7 +4,7 @@
     <Authors>Banane9 &amp; djsime1</Authors>
     <Product>GradientDriverEasing</Product>
     <Description>Makes UIX elements selectable and editable with the usual Slot gizmos, as well as fixing UIX elements breaking when a parent is inserted</Description>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Copyright>$(Authors)</Copyright>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <AssemblyTitle>$(Product)</AssemblyTitle>
@@ -23,6 +23,7 @@
     <Deterministic>true</Deterministic>
     <CopyToLibraries Condition="'$(CopyToLibraries)'==''">true</CopyToLibraries>
     <ProjectGuid>{0322B2EF-7452-479D-BAE2-FCAB75033337}</ProjectGuid>
+    <BuildProjectReferences>false</BuildProjectReferences>
   </PropertyGroup>
   <PropertyGroup Condition="'$(ResonitePath)'==''">
     <ResonitePath>$(MSBuildThisFileDirectory)Resonite</ResonitePath>
