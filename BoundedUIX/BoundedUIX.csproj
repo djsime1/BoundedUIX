@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <Authors>Banane9 &amp; djsime1</Authors>
-    <Product>GradientDriverEasing</Product>
+    <Product>BoundedUIX</Product>
     <Description>Makes UIX elements selectable and editable with the usual Slot gizmos, as well as fixing UIX elements breaking when a parent is inserted</Description>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Copyright>$(Authors)</Copyright>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <AssemblyTitle>$(Product)</AssemblyTitle>
@@ -75,6 +75,8 @@
       <HintPath>$(ResonitePath)\Renderite.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <PackageReference Remove="System.ValueTuple" />
+    <Reference Remove="System.ValueTuple" />
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(CopyToLibraries)'=='true'">
