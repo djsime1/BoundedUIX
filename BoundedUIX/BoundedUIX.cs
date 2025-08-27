@@ -56,7 +56,7 @@ namespace BoundedUIX
         public override string Author => "Banane9 & djsime1";
         public override string Link => "https://github.com/djsime1/BoundedUIX";
         public override string Name => "BoundedUIX";
-        public override string Version => "1.1.2";
+        public override string Version => "1.1.3";
 
         public override void OnEngineInit()
         {
